@@ -7,7 +7,7 @@
 <style>
     body     { padding: 0; margin: 0 }
     textarea { height: 95vh; width: 99vw;  padding: 0; margin: 0; }
-    #hdiv    { height:  3vh; }
+    #hdiv    { height:  1em; }
 </style>
 
 <script src='js/input.js'></script>
