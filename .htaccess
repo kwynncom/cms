@@ -1,3 +1,9 @@
 RewriteEngine On
 
-RewriteRule dat/(.*\.html) http://sm20/cms/rewrite.php
+RewriteCond "%{QUERY_STRING}" !raw=1
+
+#test on AWS
+RewriteRule dat/(.*\.html) rewrite.php
+
+# test
+# RewriteRule dat/(.*\.html) ../cms/rewrite.php

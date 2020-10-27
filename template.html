@@ -3,9 +3,36 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 <title>US District Court Criminal Case Reports</title>
+
+<style>
+    #kwDiv10 { 
+        font-family: sans-serif;
+        font-size  : 14pt;
+     }
+</style>
+
+<script>
+    window.onload = function() {
+        const e = document.getElementById('Kwynn_rawurl');
+        e.href = window.location + '?raw=1';
+        e.innerHTML = 'raw link';
+    }
+</script>
+
 </head>
-<body id='theBody'>
+<body>
+    <div id='kwDiv10'>
+        <p>The report below is from <a href='https://pacer.uscourts.gov/'>PACER</a>, the US Federal Court online docket.  Sealed criminal cases (indictments) 
+            have been filed at 65 times the normal rate from October, 2017 through September, 2020, and will likely continue at that same pace.  Over 200,000 
+            sealed cases have been filed over that period.  In the reports, sealed cases are below the non-sealed cases.  
+        </p>
+        <p>I discuss the numbers, link to more reports, consider the implications, and mention how to get a PACER account on <a href='https://kwynn.com/t/8/02/pacer/pacer.html'>my main sealed indictment 
+                page</a>.</p>
+        <p>The only changes I've made to the report itself are to remove my login and user IDs.  In this version, I have removed styling, PACER menus, etc.  
+            If you're using JavaScript--generally equivalent to being human / not-a-bot--I link to the rawest form of the report that I saved: <a id='Kwynn_rawurl' href=''>Back to this page for now; loading raw link...</a>.
+         </p>
+    </div>
+    <div id='pacerParent'></div>
 </body>
 </html>

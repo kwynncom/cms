@@ -10,8 +10,12 @@ They were never meant to be an endpoint.
 
 So I am starting with .htaccess file rewrites, and then I'll do some DOM manipulation to add content and context and such.
 
+https://kwynn.com/t/8/02/pacer/pacer.html  - The pages I'm trying to deal with are "under" that page.
+
 
 NOTES
+
+https://www.php.net/manual/en/domdocument.importnode.php
 
 practicing with:  http://sm20/cms/pacer/dat/asdfasdf.html?XDEBUG_SESSION_START=netbeans-xdebug
 
