@@ -17,15 +17,17 @@ class pacer_rewrite {
     
     private function p20($fn) {
 	$path = __DIR__ . '/' . 'dat/' . $fn;
-	$f = file_get_contents($path); 
-	$o = getDOMO($f);
-	$body = $o->getElementsByTagName('body')->item(0);
-	$p    = $o->createElement('p', 'hikw');
-	$p->setAttribute('style', 'position: absolute; margin-bottom: 10ex;');
-	$body->insertBefore($p, $body->firstChild);
+	$fo = file_get_contents($path); 
+	$oo = getDOMO($fo);
+	$fn = file_get_contents(__DIR__ . '/template.html');
+	$on = getDOMO($fn);
+	$content = $oo->getElementById('cmecfMainContent');
+	// $clone = $content->cloneNode(true);
+	$imp = $on->importNode($content, 1);
+	$on->getElementById('theBody')->appendChild($imp);
 	
 	
-	echo($o->saveHTML()); //  Date Modified and Etag
+	echo($on->saveHTML()); //  Date Modified and Etag
 	return;
     }
     
