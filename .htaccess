@@ -1,4 +1,3 @@
 RewriteEngine On
 
-RewriteRule pacer/dat/(.*\.html) http://sm20/cms/rewrite.php
-
+RewriteRule dat/(.*\.html) http://sm20/cms/rewrite.php
