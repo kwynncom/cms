@@ -2,7 +2,7 @@ RewriteEngine On
 
 RewriteCond "%{QUERY_STRING}" !raw=1
 
-#test on AWS
+#live
 RewriteRule dat/(.*\.html) rewrite.php
 
 # test
