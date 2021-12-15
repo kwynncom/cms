@@ -1,0 +1,5 @@
+RewriteEngine On
+
+# 2021/12/15 17:23
+# solve tmp
+RewriteRule    (.*)$      /t/8/02/pacer/$1
