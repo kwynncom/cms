@@ -1,0 +1,11 @@
+2021/12/15 18:05 EST
+
+I will likely delete quite a few files and directories.
+
+solve_tmp has an .htaccess that solves when I created pacer_tmp
+v001 is very old
+    This looks like the actual CMS in terms of an online way to edit pages.  
+htaccess is very old
+t is from today when I was modeling kwynn.com's structure
+html_php_compare is useful to see ETag and Date-Modified differences, but I've seen them now.
+
