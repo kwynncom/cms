@@ -13,10 +13,17 @@
 </style>
 
 <script>
+    function kwjshit() {
+        const h = new XMLHttpRequest();
+        h.open('GET', '/t/21/12/recvJS.php?q=qjshu2021-1', true);
+        h.send();
+    }
+    
     window.onload = function() {
         const e = document.getElementById('Kwynn_rawurl');
         e.href = window.location + '?raw=1';
         e.innerHTML = 'raw link';
+        kwjshit();
     }
 </script>
 </head>
