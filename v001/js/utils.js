@@ -1,1 +1,0 @@
-function byid(id) { document.getElementById(id); }

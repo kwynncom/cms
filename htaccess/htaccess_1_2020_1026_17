@@ -1,3 +1,0 @@
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !README.md
-RewriteRule (.*) http://sm20/cms/README.md

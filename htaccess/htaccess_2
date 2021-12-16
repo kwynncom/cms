@@ -1,9 +1,0 @@
-RewriteEngine On
-
-RewriteRule pacer/dat/(.*\.html) http://sm20/cms/README.md
-
-# works, sort of
-# RewriteRule pacer/dat/(.*\.html) http://sm20/pacer/dat/?url=$1
-
-# does not work, I don't think
-# RewriteRule cms/pacer/dat http://sm20/pacer/dat/?url=blah
