@@ -29,11 +29,15 @@ class pacer_rewrite {
 		
 		$path = $paths['dat'];
 		$ts10 = filemtime($path);
+		$tp = $paths['template'];
+		$ts20 = filemtime($tp);
+		$tsmax = max($ts20, $ts10);
+		
+		ETagDM::exit304IfTS($tsmax);
+		
 		$etp .= $path . $ts10;
 		$fo = file_get_contents($path); 
 		$oo = getDOMO($fo);
-		$tp = $paths['template'];
-		$ts20 = filemtime($tp);
 		$etp .= $tp . $ts20;
 		$fn = file_get_contents($tp);
 		$on = getDOMO($fn);
@@ -41,9 +45,9 @@ class pacer_rewrite {
 		$imp = $on->importNode($content, 1);
 		$on->getElementById('pacerParent')->appendChild($imp);
 
-		ETagDM::doHeaders($etp, max($ts20, $ts10));
+		ETagDM::doHeaders($etp, $tsmax);
 		
-		echo($on->saveHTML()); //  Date Modified and Etag
+		echo($on->saveHTML());
 		return;
     }
    

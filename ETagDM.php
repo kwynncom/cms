@@ -39,4 +39,18 @@ class ETagDM {
 		kwas($ts && is_integer($ts) && $ts > self::minTS && $ts < (time() + self::maxFutureTS), 'bad timestamp UNIX Epoch, web era');
 		header("Last-Modified: " . dateTZ("D, d M Y H:i:s", $ts, 'GMT') . " GMT");
 	}
+	
+	public static function exit304IfTS($tsfile) {
+		
+		$hs = apache_request_headers();
+		if (!isset($hs['If-Modified-Since'])) return;
+		$hu =	   $hs['If-Modified-Since'];
+
+		$tsreq = strtotime($hu);
+		if ($tsfile > $tsreq) return;
+		http_response_code(304);
+		exit(0);
+		
+		
+	}
 }
