@@ -17,7 +17,7 @@ class ETagDM {
 	
 	private static function testMode() {
 		if (isAWS()) return false;
-		return true;
+		return false;
 	}
 	
 	public static function et($tin) {
