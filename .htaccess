@@ -1,9 +1,5 @@
 RewriteEngine On
 
 RewriteCond "%{QUERY_STRING}" !raw=1
-
-#live
-RewriteRule dat/(.*\.html) rewrite.php
-
-# test
-# RewriteRule dat/(.*\.html) ../cms/rewrite.php
+RewriteCond %{REQUEST_URI} !saved_resource.html$
+RewriteRule dat/(.*\.html) rewrite.php [L]

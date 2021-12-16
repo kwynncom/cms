@@ -10,8 +10,14 @@ class ETagDM {
 	const maxFutureTS = 200000; // we'll allow for over a day due to timezone weirdness and such
 	
 	public static function doHeaders($tin, $ts) {
+		if (self::testMode()) return;
 		self::et($tin);
 		self::dm($ts);
+	}
+	
+	private static function testMode() {
+		if (isAWS()) return false;
+		return true;
 	}
 	
 	public static function et($tin) {
