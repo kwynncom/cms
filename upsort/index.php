@@ -3,4 +3,6 @@
 require_once('getFiles.php');
 require_once('ht10.php');
 
-ht10(sortSiteByTime::getPaths());
+$G_KWA = sortSiteByTime::getPaths();
+ht10($G_KWA); 
+unset($G_KWA);
