@@ -16,7 +16,6 @@ class ETagDM {
 	}
 	
 	private static function testMode() {
-		if (isAWS()) return false;
 		return false;
 	}
 	
