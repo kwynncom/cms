@@ -1,12 +1,14 @@
 <?php
 
+require_once('getFiles.php');
+
 class ht10 {
 	
 	const maxdlen = 41;
 	const ddatef  = 'm/d/y H:i';
 
-	public function __construct($dat) { 
-		$this->ht10($dat);
+	public function __construct() { 
+		$this->ht10(sortSiteByTime::getPaths());
 	}
 	
 	private function ht10($theps) {
@@ -20,3 +22,6 @@ class ht10 {
 		
 	}
 }
+
+new ht10();
+

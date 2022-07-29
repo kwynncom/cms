@@ -1,8 +1,5 @@
 <?php
 
-require_once('getFiles.php');
-require_once('ht10.php');
+require_once('/opt/kwynn/kwutils.php');
 
-$G_KWA = sortSiteByTime::getPaths();
-new ht10($G_KWA); 
-unset($G_KWA);
+require_once('htAll.php');

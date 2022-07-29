@@ -1,9 +1,4 @@
-<?php // 2022/07/28 01:21
-
-// About to separate this file from HTML stuff
-// Hopefully a lesson in objectification--going from a function to a class / object.
-
-require_once('/opt/kwynn/kwutils.php');
+<?php 
 
 if ((!ispkwd()) || (time() > strtotime('2022-07-29 03:59'))) die('expired');
 
@@ -30,7 +25,8 @@ private function __construct() {
 private function set10() {
 	$this->droot = $root = $_SERVER['DOCUMENT_ROOT'];
 	$c = 'find ' . $root . '/ ' . ' -type f -printf "%T+\t%p\n" | sort -r ';
-	$res = shell_exec($c); unset($c);
+	$res = shell_exec($c); 
+	unset($c);
 	$this->therawa = explode("\n", $res); unset($res);
 }
 

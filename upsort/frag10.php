@@ -1,3 +1,4 @@
+<table>
 <?php	foreach($theps as $o) { 
 			$p = $o->p;
 ?>
@@ -6,3 +7,4 @@
 			<td data-u='<?php echo($o->U); ?>' class='mono'><?php echo(date(self::ddatef, $o->U)); ?></td>
 		</tr>
 <?php	}	?>
+</table>
