@@ -1,5 +1,8 @@
 <?php	foreach($theps as $o) { 
 			$p = $o->p;
 ?>
-		<tr><td><a href='<?php echo($p);?>'><?php echo($p);?></a></td></tr>
+		<tr>
+			<td><a href='<?php echo($p);?>'><?php echo(self::cutp($p));?></a></td>
+			<td data-u='<?php echo($o->U); ?>'><?php echo(date(self::ddatef, $o->U)); ?></td>
+		</tr>
 <?php	}	?>

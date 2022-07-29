@@ -5,7 +5,7 @@
 
 require_once('/opt/kwynn/kwutils.php');
 
-if ((!ispkwd()) || (time() > strtotime('2022-07-28 03:59'))) die('expired');
+if ((!ispkwd()) || (time() > strtotime('2022-07-29 03:59'))) die('expired');
 
 
 class sortSiteByTime {
