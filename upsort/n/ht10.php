@@ -1,6 +1,6 @@
 <?php
 
-require_once('getFiles.php');
+require_once(__DIR__ . '/../utils/getFiles.php');
 
 class ht10 {
 	
@@ -12,9 +12,9 @@ class ht10 {
 	}
 	
 	private function ht10($theps) {
-		require_once(__DIR__ . '/html/top.html');
-		require_once('frag10.php');
-		require_once(__DIR__ . '/html/bottom.html');
+		require_once(__DIR__ . '/top.html');
+		require_once('ht05.php');
+		require_once('ht10_frag10.php');
 	}
 	
 	public static function cutp($p) {

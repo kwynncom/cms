@@ -1,4 +1,3 @@
-<?php
-
-require_once('ht05.php');
-require_once('ht10.php');
+<?php   require_once('n/ht10.php'); ?>
+</body>
+</html>

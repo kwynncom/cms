@@ -1,6 +1,6 @@
 <?php 
 
-if ((!ispkwd()) || (time() > strtotime('2022-07-29 03:59'))) die('expired');
+if ((!ispkwd()) || (time() > strtotime('2022-07-29 07:59'))) die('expired');
 
 
 class sortSiteByTime {
