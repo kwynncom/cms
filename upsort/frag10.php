@@ -3,6 +3,6 @@
 ?>
 		<tr>
 			<td><a href='<?php echo($p);?>'><?php echo(self::cutp($p));?></a></td>
-			<td data-u='<?php echo($o->U); ?>'><?php echo(date(self::ddatef, $o->U)); ?></td>
+			<td data-u='<?php echo($o->U); ?>' class='mono'><?php echo(date(self::ddatef, $o->U)); ?></td>
 		</tr>
 <?php	}	?>
