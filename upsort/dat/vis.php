@@ -1,6 +1,7 @@
 <?php
 
 require_once('/opt/kwynn/kwutils.php');
+require_once('/opt/kwynn/isKwGoo.php');
 
 class fileVis extends dao_generic_3 {
 	
@@ -10,8 +11,20 @@ class fileVis extends dao_generic_3 {
 		parent::__construct(self::dbname);
 		$this->creTabs('vis');
 		if ($from === 'getVis') { $this->setVis(); return; }
+		if (isrv('eid') === 'adminToggle') { $this->setMode(); return; }
 		$this->do10();
 
+	}
+	
+	private function setMode() {
+		kwGooOrDie();
+		$isa = isrv('checked'); kwas(is_bool($isa), 'bad setMode 0407 fileVis');
+		$this->creTabs('admins_sids');
+		$sid = vsidod();
+		$q = ['sid' => $sid];
+		$dat = $q;
+		$dat['isadmin'] = $isa;
+		$this->acoll->upsert($q, $dat);
 	}
 	
 	public function isvis(string $pin) {

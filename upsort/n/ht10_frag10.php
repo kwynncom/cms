@@ -16,7 +16,7 @@
 			<?php if ($isad) {	?>
 			
 			<td>
-				<input type='checkbox' data-p='<?php echo($p); ?>' onclick='onPCk(this);' id='ecb<?php echo($i);?>' <?php echo($cks); ?> />
+				<input type='checkbox' data-p='<?php echo($p); ?>' onclick='onCk(this);' id='ecb<?php echo($i);?>' <?php echo($cks); ?> />
 			</td>
 			
 			<?php }	?>			

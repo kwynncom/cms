@@ -5,8 +5,7 @@
 	$ikg = isKwGoo();
 	if ($ikg) {
 ?>
-	<label> <input type='radio' name='visMode' value='admin'   /> 	admin    </label>
-	<label style='padding-left: 2ex; '> <input type='radio' name='visMode' value='enduser' /> 	end user </label>
+	<label> <input type='checkbox' id='adminToggle' checked='checked'  onclick='onCk(this);' /> 	Admin on?    </label>
 	
 <?php } ?> 
 </div>
