@@ -1,6 +1,7 @@
 <?php
 
 require_once(__DIR__ . '/../utils/getFiles.php');
+require_once(__DIR__ . '/../dat/vis.php');
 
 class ht10 {
 	
@@ -8,7 +9,8 @@ class ht10 {
 	const ddatef  = 'm/d/y H:i';
 
 	public function __construct() { 
-		$this->ht10(sortSiteByTime::getPaths());
+		$paths = isKwGoo() ? sortSiteByTime::getPaths() : fileVis::getVis();
+		$this->ht10($paths);
 	}
 	
 	private function ht10($theps) {
@@ -19,8 +21,9 @@ class ht10 {
 	
 	public static function cutp($p) {
 		return substr($p, 0, self::maxdlen);
-		
 	}
+	
+	
 }
 
 new ht10();

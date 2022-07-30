@@ -1,4 +1,4 @@
 function onPCk(e) {
-    kwjss.sendEle('server.php', e);
+    kwjss.sendEle('dat/server.php', e, false, false, {'action' : 'toggle'});
 }
 

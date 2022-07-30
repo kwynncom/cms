@@ -1,6 +1,6 @@
 <?php 
 
-if ((!ispkwd()) || (time() > strtotime('2022-07-29 07:59'))) die('expired');
+require_once('/opt/kwynn/isKwGoo.php');
 
 
 class sortSiteByTime {
@@ -25,6 +25,7 @@ private function __construct() {
 private function set10() {
 	$this->droot = $root = $_SERVER['DOCUMENT_ROOT'];
 	$c = 'find ' . $root . '/ ' . ' -type f -printf "%T+\t%p\n" | sort -r ';
+	kwGooOrDie();
 	$res = shell_exec($c); 
 	unset($c);
 	$this->therawa = explode("\n", $res); unset($res);
@@ -72,7 +73,7 @@ private function setTimePs($rt, &$ref) {
 	$tsfl = $ts + $flns;
 	$ns = intval($ms[3]);
 	
-	kwas($ts > self::minDate, 'files are suspiciously old / too old based on settings');
+	kwas($ts > self::minDate, 'files are too old based on settings');
 	kwas($tsfl >= $ts, 'timestamp float should be >= ts');
 	
 	$ref->U = $ts;
