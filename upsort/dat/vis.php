@@ -19,9 +19,8 @@ class fileVis extends dao_generic_3 {
 	private function setMode() {
 		kwGooOrDie();
 		$isa = isrv('checked'); kwas(is_bool($isa), 'bad setMode 0407 fileVis');
-		$this->creTabs('admins_sids');
-		$sid = vsidod();
-		$q = ['sid' => $sid];
+		$this->creTabs('admin');
+		$q['_id'] = 'adminModeStatus';
 		$dat = $q;
 		$dat['isadmin'] = $isa;
 		$this->acoll->upsert($q, $dat);
