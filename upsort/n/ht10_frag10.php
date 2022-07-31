@@ -2,18 +2,20 @@
 <?php	
 
 	require_once(__DIR__ . '/../dat/vis.php');
-
-	$isad = isKwGoo();
+	
 	$vo = new fileVis();
 	
-	foreach($theps as $i => $o) { 
+	foreach($theps as $i => $a) { 
+		$o = (object)$a;
+		
 		$p = $o->p;
 		$isv = $vo->isvis($p);
 		$cks = $isv ? " checked='checked' " : ''; unset($isv);
+		
 ?>
 		<tr>
 			
-			<?php if ($isad) {	?>
+			<?php if ($this->isad && $this->isav) {	?>
 			
 			<td>
 				<input type='checkbox' data-p='<?php echo($p); ?>' onclick='onCk(this);' id='ecb<?php echo($i);?>' <?php echo($cks); ?> />

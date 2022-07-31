@@ -8,13 +8,31 @@ class fileVis extends dao_generic_3 {
 	const dbname = 'wwwFileVis';
 	
 	public function __construct(string $from = '') {
-		parent::__construct(self::dbname);
-		$this->creTabs('vis');
+		$this->dbInit();
 		if ($from === 'getVis') { $this->setVis(); return; }
 		if (isrv('eid') === 'adminToggle') { $this->setMode(); return; }
-		$this->do10();
+		if ($from !== 'iao') $this->do10();
 
 	}
+	
+	private function dbInit() {
+		parent::__construct(self::dbname);
+		$this->creTabs('vis');		
+	}
+	
+	public static function isAdminOn() {
+		$o = new self('iao');
+		return $o->isAdminOnI();
+
+		
+	}
+	
+	public function isAdminOnI() {
+		$this->creTabs('admin');
+		$res = $this->acoll->findOne(['_id' => 'adminModeStatus']);
+		if (!$res) return true;
+		return kwifs($res['isAdmin']);
+	}	
 	
 	private function setMode() {
 		kwGooOrDie();
@@ -22,12 +40,11 @@ class fileVis extends dao_generic_3 {
 		$this->creTabs('admin');
 		$q['_id'] = 'adminModeStatus';
 		$dat = $q;
-		$dat['isadmin'] = $isa;
+		$dat['isAdmin'] = $isa;
 		$this->acoll->upsert($q, $dat);
 	}
 	
 	public function isvis(string $pin) {
-		kwGooOrDie();
 		return $this->vcoll->count(['_id' => $pin]);
 		
 	}
@@ -37,12 +54,14 @@ class fileVis extends dao_generic_3 {
 	private function setVis() {
 		 $this->ftss = [];
 		
-		$a = $this->vcoll->find();
+		$a = $this->vcoll->find([]);
 		if (!$a) return;
 		
+		
+		$dr = $_SERVER['DOCUMENT_ROOT'];
 		foreach($a as $r) {
-			$p = $r['_id']; 
-			$this->ftss[] = ['p' => $p, 'U' => filemtime($p)];
+			$p =  $r['_id']; 
+			$this->ftss[] = ['p' => $p, 'U' => filemtime($dr . '/' . $p)];
 		}
 		
 		usort($this->ftss, [$this, 'sort']);
@@ -50,9 +69,9 @@ class fileVis extends dao_generic_3 {
 	}
 	
 	private function sort($a, $b) {
-		$dU = $a['U'] - $b['U'];
+		$dU = $b['U'] - $a['U'];
 		if ($dU) return $dU;
-		return strcmp($a['p'], $b['p']);
+		return strcmp($b['p'], $a['p']);
 		
 	}
 	
