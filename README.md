@@ -1,6 +1,9 @@
 # cms
 Very beginning of my own CMS.
 
+https://kwynn.com/t/22/06/upsort/ - Update log is live.
+
+****
 As of October 26, 2020, my goal is to deal with web server access lines like this:
 
 GET /t/8/02/pacer/dat/WY1.html 

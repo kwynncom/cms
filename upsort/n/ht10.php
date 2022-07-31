@@ -16,9 +16,10 @@ class ht10 {
 	}
 	
 	private function ht10($theps) {
-		require_once(__DIR__ . '/top.html');
+		require_once(__DIR__ . '/ht03_top.html');
 		require_once('ht05_frag.php');
 		require_once('ht10_frag10.php');
+		require_once(__DIR__ . '/ht90_bottom.html');
 	}
 	
 	public static function cutp($p) {
