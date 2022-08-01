@@ -15,12 +15,12 @@
 <script>
     class getLU1lc {
         static async get59() {
-            const p10 = new Promise((res) => { return upsortGet1X.get22(); });
-            // 
-            
-           await Promise.all([p10 ])
-                    .then(([r1,ig2]) => { 
-                        cl(r1); 
+            const p10 = kwjss.sobf('/t/22/06/upsort/dat/server.php?getOne=1');
+            const p20 = new Promise((resolve) => onDOMLoad(resolve));
+           await Promise.all([p10, p20 ])
+                    .then(([pres,ig2]) => { 
+                        pres['rjs'] = UtoLocF(pres['U']);
+                        return pres;
                         }
                     );
         }
