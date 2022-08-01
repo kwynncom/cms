@@ -9,10 +9,22 @@ class fileVis extends dao_generic_3 {
 	
 	public function __construct(string $from = '') {
 		$this->dbInit();
-		if ($from === 'getVis') { $this->setVis(); return; }
+		$g1 =  isrv('getOne');
+		if ($from === 'getVis' || $g1) { 
+			$this->setVis(); 
+			if (!$g1) return; 
+		}
 		if (isrv('eid') === 'adminToggle') { $this->setMode(); return; }
+		if ($g1) $this->sendOne();
 		if ($from !== 'iao') $this->do10();
 
+
+	}
+	
+	private function sendOne() {
+		$r = $this->ftss[0];
+		$r['r'] = date('r', $r['U']);
+		kwjae($r);
 	}
 	
 	private function dbInit() {
