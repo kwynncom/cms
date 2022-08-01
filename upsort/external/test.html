@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'    />
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+
+<title>get latest site page</title>
+
+<style>
+    body { font-family: sans-serif; }
+</style>
+
+<script src='/opt/kwynn/js/utils.js'></script>
+<script src='/t/22/06/upsort/external/external.js'></script>
+<script>
+    function onLatest(res) {
+        inht('latest', res['rjs']);
+    }
+    kwGetLatestWWW(onLatest);    
+
+</script>
+
+</head>
+<body>
+    <p>site updated <span id='latest'></span></p>
+</body>
+</html>
