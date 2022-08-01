@@ -14,18 +14,20 @@
 <script src='/t/22/06/upsort/external/ex.js'></script>
 <script>
     class getLU1lc {
-        constructor() {
-            new upsortGet1Cl(this.onres);
+        static async get59() {
+            const p10 = new Promise((res) => { return upsortGet1X.get22(); });
+            // 
+            
+           await Promise.all([p10 ])
+                    .then(([r1,ig2]) => { 
+                        cl(r1); 
+                        }
+                    );
         }
-        
-        onres(res) {
-            onDOMLoad(() => { // **** THIS FAILS DUE TO RACE CONDITION - need to work on promises
-                cl(res);
-            });
-        }
+
     }
     
-    new getLU1lc();
+    getLU1lc.get59();
 </script>
 
 </head>
