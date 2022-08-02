@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'    />
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+
+<title>get latest site page</title>
+
+<style>
+    body { font-family: sans-serif; }
+</style>
+
+<script src='/opt/kwynn/js/utils.js'></script>
+<script src='/t/22/06/upsort/external/external.js'></script>
+<script>
+    function onLatest(res) {
+        setTimeout(
+        () => {inht('upt10', res['rjs']); }, 2000
+        );
+    }
+    kwGetLatestWWW(onLatest);    
+
+</script>
+
+</head>
+<body>
+
+<div>
+    <h1  style='display: inline; font-size: 120%; '>Kwynn's website <span class='h1s10'>on software, with topic scope creep</span></h1>
+    <div class='upl10' style='display: inline; padding-left: 1ex; font-size: 90%;  '>
+        <div style='display: inline; overflow-wrap: break-word;  '>site updated 
+            <span id='upt10' style='font-family: monospace; font-size: 110%; min-width: 37.3ex; display: table-cell; '>(checking...)</span>
+        </div>
+        <a href='/t/22/06/upsort/'>update log</a>
+    </div>
+</div>
+</body>
+</html>
