@@ -14,7 +14,10 @@
     <div>
         <?php echo('hi from PHP');?>
     </div>
-    <p>site updated <span id='latest'><?php require_once(__DIR__ . '/../external/getOneSS.php'); ?></span></p>
+    <p>site updated <span id='latest'>
+            <!-- keep the JS version for local timezone -->
+            <?php require_once(__DIR__ . '/../external/getOneSS.php'); ?>
+        </span></p>
     
 </body>
 </html>
