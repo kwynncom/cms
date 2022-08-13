@@ -1,0 +1,11 @@
+<Files 'index.html'>
+
+# SetHandler - server config, virtual host, directory, .htaccess
+# SetHandler application/x-httpd-php
+# moved to server config Location directive
+# <Location /t/22/06/upsort/test/index.html>
+#   SetHandler application/x-httpd-php
+# </Location>
+
+</Files>
+

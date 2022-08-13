@@ -7,7 +7,14 @@ class fileVis extends dao_generic_3 {
 	
 	const dbname = 'wwwFileVis';
 	
-	public function __construct(string $from = '') {
+	public static function getOneInternal() {
+		$o = new self('getVis', true);
+		$a = $o->sendOne(true);
+		return $a['dHussjs'];
+		
+	}
+	
+	public function __construct(string $from = '', bool $getOneInteral = false) {
 		$this->dbInit();
 		$g1 =  isrv('getOne');
 		if ($from === 'getVis' || $g1) { 
@@ -15,16 +22,20 @@ class fileVis extends dao_generic_3 {
 			if (!$g1) return; 
 		}
 		if (isrv('eid') === 'adminToggle') { $this->setMode(); return; }
-		if ($g1) $this->sendOne();
+		if ($g1) $this->sendOne($getOneInteral);
 		if ($from !== 'iao') $this->do10();
 
 
 	}
 	
-	private function sendOne() {
+	public function sendOne($internal) {
 		$r = $this->ftss[0];
 		$r['r'] = date('r', $r['U']);
-		kwjae($r);
+		if ($internal) { 
+			//  Sat, Aug 13, 2022, 01:59 AM EDT
+			$r['dHussjs'] = date('D, M d, Y, h:i A T', $r['U']); 
+			return $r; 
+		} else kwjae($r);
 	}
 	
 	private function dbInit() {

@@ -15,7 +15,7 @@
 <script>
     function onLatest(res) {
         setTimeout(
-        () => {inht('upt10', res['rjs']); }, 2000
+        () => {inht('upt10', res['rjs']); }, 800
         );
     }
     kwGetLatestWWW(onLatest);    
@@ -24,15 +24,21 @@
 
 </head>
 <body>
-
+    
 <div>
-    <h1  style='display: inline; font-size: 120%; '>Kwynn's website <span class='h1s10'>on software, with topic scope creep</span></h1>
-    <div class='upl10' style='display: inline; padding-left: 1ex; font-size: 90%;  '>
-        <div style='display: inline; overflow-wrap: break-word;  '>site updated 
-            <span id='upt10' style='font-family: monospace; font-size: 110%; min-width: 37.3ex; display: table-cell; '>(checking...)</span>
-        </div>
-        <a href='/t/22/06/upsort/'>update log</a>
+    <h1  style='display: inline; font-size: 120%; '>Kwynn's website 
+        <span style='font-size: 95%; font-weight: normal;'>on software, with topic scope creep.</span></h1>
+    <div class='upl10' style='display: inline; padding-left: 0ex; font-size: 110%;  '>
+        <span style='overflow-wrap: break-word; '>
+            <span style='font-size: 90% '>Site updated</span>
+                <span id='upt10' 
+                      style='font-family: monospace; font-size: 120%; text-align: center; '>
+                    <span style='display: inline-block; width: 31ch'>(checking...)                   </span></span>
+
+            <a href='/t/22/06/upsort/' style='font-size: 90%; padding-left: 0ex; '>update log</a>
+        </span>
     </div>
 </div>
+    
 </body>
 </html>
