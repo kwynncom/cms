@@ -18,9 +18,12 @@
 	var GDOV;
 	
 	
-class getEmailCookie {
-	constructor() {
-		onDOMLoad(() => { kwjss.sobf('/t/7/12/email/cookieMgrKw', {}, this.onret, false); });
+class getCookiesInclEM {
+	constructor(sob) {
+		if (!sob) sob = {};
+		const f = () => { kwjss.sobf('/t/7/12/email/cookieMgrKw', sob, this.onret, false); };
+		if (!sob) onDOMLoad(() => { f(); });
+		else f();
 	}
 	
 	onret(res) {
@@ -29,7 +32,7 @@ class getEmailCookie {
 	}
 	
 }
-new getEmailCookie();
+new getCookiesInclEM();
 
 function togglev(showit) {
 	const setto = showit ? 'visible' : 'hidden';
@@ -43,8 +46,14 @@ class changeCVs {
 	}
 	
 	doit() {
-		checkNum();
+		this.valfs = 0;
+		if (checkNum()) this.valfs++;
 		this.do10();
+		if (this.valfs === 2) this.send();
+	}
+	
+	send() {
+		new getCookiesInclEM({'toch' : this.toch});
 	}
 	
 	setKeys() {
@@ -67,7 +76,8 @@ class changeCVs {
 			e.parentNode.style.backgroundColor = col;
 		});	
 		
-		cl(ckks);
+		if (arecv) this.valfs++;
+		this.toch = ckks;
 	}
 }
 
@@ -75,8 +85,10 @@ function checkNum() {
 	const e = byid('cexHours');
 	const v = e.value;
 	let cv = '';
-	if (!is_numeric(v)) cv = 'not a number';
+	const isn = is_numeric(v);
+	if (!isn) cv = 'not a number';
 	e.setCustomValidity(cv);
+	return isn;
 }
 
 </script>
