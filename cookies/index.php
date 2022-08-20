@@ -8,6 +8,8 @@
 
 <style>
     body { font-family: sans-serif; }
+	.cookv { padding-left: 1ex; }
+	:invalid { background-color: lightSalmon; }
 </style>
 
 <script src='/opt/kwynn/js/utils.js'></script>
@@ -22,12 +24,35 @@ class getEmailCookie {
 	}
 	
 }
-	
-	new getEmailCookie();
+new getEmailCookie();
+
+function togglev(showit) {
+	const setto = showit ? 'visible' : 'hidden';
+	qsa('.cookv').forEach((e) => { e.style.visibility = setto; });	
+}
+
+class changeCVs {
+	constructor() {
+		checkNum();
+	}
+}
+
+function checkNum() {
+	const e = byid('cexHours');
+	const v = e.value;
+	let cv = '';
+	if (!is_numeric(v)) cv = 'not a number';
+	e.setCustomValidity(cv);
+}
+
 </script>
 
 </head>
 <body>
-	<pre id='out10'></pre>
+	<h1 style='font-size: 120%;'>your active cookies for this site</h1>
+	
+	<div><input type='checkbox' onclick='togglev(this.checked);' /> show values (Don't let bad guys see values!)</div>
+	
+	<div id='out10'></div>
 </body>
 </html>
