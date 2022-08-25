@@ -1,5 +1,5 @@
-<?php $cks = kwifs($_COOKIE, 0);
-	if (!$cks) { ?>
+<?php $ckcnt = count($_COOKIE); 
+	if (!$ckcnt) { ?>
 
 <p>no cookies - nothing to do - the settings on this page are irrelevant</p>
 

@@ -10,7 +10,20 @@ class cookies {
 	}
 	
 	private function procIn() {
-		$in = kwjssrp();
+		$all = kwjssrp();
+		$hrss = kwifs($all, 'hours');
+		if ($hrss === false) return;
+		kwas(is_numeric($hrss), 'hours must be numeric');
+		if ($hrss === '0') $hrs = 0;
+		else $hrs = parseFloat($hrss);
+		try { 
+			kwas(is_array($all['toch']), 'no toch array');
+		} catch(Exception $ex) { return; }
+		
+		foreach($all['toch'] as $c) {
+			kwas($_COOKIE[$c], 'cookie not found');
+		}
+		
 		return;
 	}
 	
