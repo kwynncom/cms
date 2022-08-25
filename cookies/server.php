@@ -5,7 +5,9 @@ require_once('/opt/kwynn/kwutils.php');
 class cookies {
 	
 	public function __construct() {
+		$this->coi = [];
 		$this->procIn();
+		$this->exp();
 		require_once('frag10.php');		
 	}
 	
@@ -15,13 +17,21 @@ class cookies {
 		if ($hrss === false) return;
 		kwas(is_numeric($hrss), 'hours must be numeric');
 		if ($hrss === '0') $hrs = 0;
-		else $hrs = parseFloat($hrss);
+		else $hrs = floatval($hrss);
 		try { 
 			kwas(is_array($all['toch']), 'no toch array');
 		} catch(Exception $ex) { return; }
 		
 		foreach($all['toch'] as $c) {
-			kwas($_COOKIE[$c], 'cookie not found');
+			$v = kwifs($_COOKIE, $c);
+			if (!$v) continue;		  // This is normal if you just expired it.
+			$sex = time() + $hrs * 3600;
+			
+			$exa = ['kwcex' => $sex];
+			if (in_array($c, ['atkey', 'rtkey', 'pemck_user'])) $exa['path'] = '/t/7/12/email';
+			
+			kwscookie($c, $v, $exa);
+			
 		}
 		
 		return;
@@ -37,6 +47,16 @@ class cookies {
 			$r = substr($r, $sckl);
 			preg_match('/[^;=]+/', $r, $mnm);
 			preg_match('/expires=([^;]+)/', $r, $mex);
+			
+			$ex = kwifs($mex, 1);
+			if (!$ex) $tos = 'Session';
+			$tos = $ex;
+			
+			$nm = kwifs($mnm, 0);
+			if (!$nm) continue;
+
+			$this->coi[$nm] = $tos;
+			
 			continue;
 		}
 	}
