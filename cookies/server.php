@@ -18,14 +18,13 @@ class cookies {
 		kwas(is_numeric($hrss), 'hours must be numeric');
 		if ($hrss === '0') $hrs = 0;
 		else $hrs = floatval($hrss);
-		try { 
-			kwas(is_array($all['toch']), 'no toch array');
-		} catch(Exception $ex) { return; }
+		try { kwas(is_array($all['toch']), 'no toch array'); } catch(Exception $ex) { return; }
 		
 		foreach($all['toch'] as $c) {
 			$v = kwifs($_COOKIE, $c);
 			if (!$v) continue;		  // This is normal if you just expired it.
-			$sex = time() + $hrs * 3600;
+			if ($hrs === 0) $sex = 0;
+			else			$sex = roint(time() + $hrs * 3600);
 			
 			$exa = ['kwcex' => $sex];
 			if (in_array($c, ['atkey', 'rtkey', 'pemck_user'])) $exa['path'] = '/t/7/12/email';
