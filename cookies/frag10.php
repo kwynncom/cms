@@ -1,3 +1,14 @@
+<?php $cks = kwifs($_COOKIE, 0);
+	if (!$cks) { ?>
+
+<p>no cookies - nothing to do - the settings on this page are irrelevant</p>
+
+
+<?php } 
+else {
+
+?>
+
 <table style='margin-top: 2ex; '>
 
 	<thead><tr><th></th><th>name</th><th>value</th></tr></thead>
@@ -11,3 +22,4 @@
 <?php } ?>
 	</tbody>
 </table>
+<?php } ?>
