@@ -2,4 +2,7 @@
 
 require_once('vis.php');
 
-new fileVis();
+if (didAnyCallMe(__FILE__)) { 
+	if (isrv('getOne')) { echo(fileVis::getOneInternal()); exit(0); }
+	else new fileVis();
+}

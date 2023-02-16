@@ -1,17 +1,22 @@
 <?php
 
-require_once('/opt/kwynn/kwutils.php');
-require_once('/opt/kwynn/isKwGoo.php');
 
-class fileVis extends dao_generic_3 {
-	
-	const dbname = 'wwwFileVis';
-	
-	public static function getOneInternal() {
+require_once('/opt/kwynn/isKwGoo.php');
+require_once(__DIR__ . '/' . 'config.php');
+require_once(__DIR__ . '/' . 'cache.php');
+
+class fileVis extends dao_generic_3 implements upsortDBConfig {
+
+	public static function getOneInternal(string $f = '') {
+		if ($c = wwwLatestUpdateCache::get()) {
+			if ($f) return $c[$f];
+			else return json_encode($c); 
+		} unset($c);
 		$o = new self('getVis', true);
 		$a = $o->sendOne(true);
-		return $a['dHussjs'];
-		
+		$ret = $a['dHussjs'];
+		wwwLatestUpdateCache::put($a);
+		return $ret;
 	}
 	
 	public function __construct(string $from = '', bool $getOneInteral = false) {
