@@ -7,10 +7,10 @@ require_once(__DIR__ . '/' . 'cache.php');
 
 class fileVis extends dao_generic_3 implements upsortDBConfig {
 
-	public static function getOneInternal(string $f = '') {
+	public static function getOneLatest(string $fmt = 'json') {
 		if ($c = wwwLatestUpdateCache::get()) {
-			if ($f) return $c[$f];
-			else return json_encode($c); 
+			if ($fmt === 'json') return json_encode($c); 
+			else return $c;
 		} unset($c);
 		$o = new self('getVis', true);
 		$a = $o->sendOne(true);

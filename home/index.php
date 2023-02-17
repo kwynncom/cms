@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php 
+	require_once(__DIR__ . '/t/23/02/homecms/homeserv.php'); 
+	$GVKWHIDX = new kwHomePageAssist(__FILE__);
+?><!DOCTYPE html>
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -64,13 +67,8 @@ h1 { font-size: 150%;
             <span style='font-size: 90% '>Site updated</span>
 				<span style='display: inline-block; width: 31ch; text-align: center; font-family: monospace; font-size: 120%; ' 
 					  ><?php 
-						require_once(__DIR__ . '/t/22/06/upsort/dat/vis.php'); 
-						
-						$lo = json_decode(fileVis::getOneInternal(), true);
-						echo($lo['dHussjs']); unset($lo);
-
-						?>
-
+					  echo($GVKWHIDX->oneuphu); 
+					  ?>
 				</span>
 
 				<a href='/t/22/06/upsort/' style='font-size: 90%; padding-left: 0ex; '>update log</a>
@@ -108,10 +106,7 @@ h1 { font-size: 150%;
 	    <li><a href='/t/21/12/worldview_series.html'>worldview article series</a></li>
         <li><a href='/t/21/12/personal_blog.html'>personal blog</a></li>
 		<li>It's week <span id='weeksfc' ><?php 
-			require_once(__DIR__ . '/t/21/12/flatten.php');
-			$weeko = new weeksFlattenCurve();
-			echo($weeko->weekn); 
-			unset($weeko);
+		echo($GVKWHIDX->flatn);	
 		?></span> to flatten the curve.</li>
     </ul>
 </section>
