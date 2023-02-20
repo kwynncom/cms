@@ -155,12 +155,10 @@ padding-bottom: 0.6ex;
 	--></a></h2>
 </div> <!-- numerology calc link -->
 
-<div class='htvd'>
-    <a href="https://validator.w3.org/check?uri=referer"><img
-        src="/t/5/02/html5_valid.jpg"
-        alt="HTML5 validation check" width="103" height="36" /></a>
-</div>
-    </div> <!-- last 2 -->
-    
+	<!-- HTML validator below -->
+	<div class='htvd'><?php require_once(__DIR__ . '/t/23/02/htva/htva.php'); ?></div>
+
+</div> <!-- last 2 -->
+ 
 </body>
 </html>
