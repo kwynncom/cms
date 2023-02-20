@@ -4,15 +4,17 @@
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'    />
 <meta name='viewport' content='width=device-width, initial-scale=1.0' />
 
-<title>title</title>
+<title>iframe HTML validator test</title>
 
 <style>
-    body { font-family: sans-serif; }
+	/* #htvdifp { margin: 0; padding: 0; width: 103px; height: 36px; } */
+	#htvdifa { margin: 0; padding: 0; width: 103px; height: 36px; border: none; }
 </style>
+
 </head>
 <body>
-	<div class='htvd'>
-		<iframe src='/t/23/02/htva/htvaif.php' style='width: 103px; height: 36px; border: none; '/>
+	<div id='htvdifp'>
+		<iframe id='htvdifa' src='/t/23/02/htva/htvaif.php?htvalnurelpath=/t/23/02/htva/iftest.php' />
 	</div>
 	
 </body>

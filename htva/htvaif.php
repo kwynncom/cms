@@ -4,22 +4,15 @@
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'    />
 <meta name='viewport' content='width=device-width, initial-scale=1.0' />
 
-<title>HTML validator iframe</title>
+<title>iframe HTML validator</title>
 
 <style>
-    body { 
-		font-family: sans-serif; 
-		margin: 0;
-	}
-	
-	.htvdif {
-		margin: 0; display: inline-block; 
-		
-	}
+	body { margin: 0; padding: 0; }
 </style>
+
 </head>
 <body>
-	<div class='htvdif'>
+	<div>
 		<?php require_once(__DIR__ . '/htva.php'); ?>
 	</div>
 	
