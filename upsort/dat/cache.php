@@ -20,7 +20,9 @@ class wwwLatestUpdateCache extends dao_generic_3 implements upsortDBConfig  {
 	private function __construct(array $a = []) {
 		parent::__construct(self::dbname);
 		$this->creTabs('cache');
-		if ($a) $this->ccoll->upsert(self::q, $a);
+		if (!$a) return;
+		unset($a['_id']);
+		$this->ccoll->upsert(self::q, $a);
 	}
 	
 	public function getI() : array {

@@ -3,12 +3,12 @@
 require_once('/opt/kwynn/isKwGoo.php');
 
 
-class sortSiteByTime {
+class getSiteFiles {
 	
 	const minDate = 1270400000; // 1270400000 === Sun Apr 04 2010 12:53:20 GMT-0400 (Eastern Daylight Time)
 	
 
-public static function getPaths() {
+public static function get() {
 	$o = new self();
 	return $o->getPathsI();
 }
@@ -23,8 +23,8 @@ private function __construct() {
 }
 
 private function set10() {
-	$this->droot = $root = $_SERVER['DOCUMENT_ROOT'];
-	$c = 'find ' . $root . '/ ' . ' -type f -printf "%T+\t%p\n" | sort -r ';
+	$this->droot = $root = dr();
+	$c = 'find ' . $root . '/ ' . ' -type f -printf "%T+\t%p\n" ';
 	kwGooOrDie();
 	$res = shell_exec($c); 
 	unset($c);
@@ -76,14 +76,14 @@ private function setTimePs($rt, &$ref) {
 	kwas($ts > self::minDate, 'files are too old based on settings');
 	kwas($tsfl >= $ts, 'timestamp float should be >= ts');
 	
-	$ref->U = $ts;
-	$ref->Ufl = $tsfl;
-	$ref->nsonly = $ns;
+	$ref['U'] = $ts;
+	// $ref->Ufl = $tsfl;
+	// $ref->nsonly = $ns;
 }
 
 private function buildDat($p, $rt) {
-	$to = new stdClass();
-	$to->p = $p;
+	$to = [];
+	$to['p'] = $p;
 	$this->setTimePs($rt, $to);
 	$this->thedat[] = $to;
 }

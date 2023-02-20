@@ -4,8 +4,12 @@
 require_once('/opt/kwynn/isKwGoo.php');
 require_once(__DIR__ . '/' . 'config.php');
 require_once(__DIR__ . '/' . 'cache.php');
+require_once(dr() . '/t/23/02/webhook_git/pull/get.php');
+require_once(__DIR__ . '/../utils/getURLs.php');
 
 class fileVis extends dao_generic_3 implements upsortDBConfig {
+	
+	private readonly array $ftss;
 
 	public static function getOneLatest(string $fmt = 'json') {
 		if ($c = wwwLatestUpdateCache::get()) {
@@ -79,21 +83,46 @@ class fileVis extends dao_generic_3 implements upsortDBConfig {
 	
 	public function getVisI() { return $this->ftss; }
 	
+	private function getUs() : array {
+		if (!$this->ouids) return [];
+		
+		$a = GitGet::get($this->ouids);
+		getAllUpPgURLs::normUs($a);
+		return $a;
+	}
+	
 	private function setVis() {
-		 $this->ftss = [];
+		$f = $this->getVis10();
+		$u = $this->getUs();
+			
+		$a = kwam($f, $u);
+		usort($a, [$this, 'sort']);
+		$this->ftss = $a;
+	}
+	
+	
+	// private function get
+	private function getVis10() : array {
 		
 		$a = $this->vcoll->find([]);
-		if (!$a) return;
-		
-		
+		if (!$a) return [];
+
 		$dr = $_SERVER['DOCUMENT_ROOT'];
+		
+		$t = [];
+		
+		$this->ouids = [];
 		foreach($a as $r) {
-			$p =  $r['_id']; 
-			$this->ftss[] = ['p' => $p, 'U' => filemtime($dr . '/' . $p)];
+			$p =  $r['_id'];
+			$fp = $dr . '/' . $p;
+			if ($p[0] !== '/' || !file_exists($fp)) {
+				$this->ouids[] = $p;
+				continue;
+			}
+			$t[] = ['p' => $p, 'U' => filemtime($fp)];
 		}
 		
-		usort($this->ftss, [$this, 'sort']);
-		
+		return $t;
 	}
 	
 	private function sort($a, $b) {
@@ -117,7 +146,7 @@ class fileVis extends dao_generic_3 implements upsortDBConfig {
 		$droot = $_SERVER['DOCUMENT_ROOT'];
 		$isck = isrv('checked'); kwas(is_bool($isck), 'bad val vis 1 0258');
 		$d    = isrv('dataset');
-		$p    = $d['p']; kwas(is_readable($droot . $p), 'bad val vis 2 0259');
+		$p    = $d['p']; kwas($p[0] !== '/' || is_readable($droot . $p), 'bad val vis 2 0259');
 		$dat['_id'] = $p;
 		if ($isck) {
 			$dres = $this->vcoll->insertOne($dat); kwas($dres->getInsertedCount() === 1, 'bad db res count insert vis 3');

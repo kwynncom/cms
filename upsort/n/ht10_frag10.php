@@ -6,9 +6,10 @@
 	$vo = new fileVis();
 	
 	foreach($theps as $i => $a) { 
-		$o = (object)$a;
+		// $o = (object)$a;
 		
-		$p = $o->p;
+		$o = $a;
+		$p = $o['p'];
 		$isv = $vo->isvis($p);
 		$cks = $isv ? " checked='checked' " : ''; unset($isv);
 		
@@ -23,7 +24,7 @@
 			
 			<?php }	?>			
 			<td><a href=  '<?php echo($p   ); ?>'><?php echo(self::cutp($p)); ?></a></td>
-			<td    data-u='<?php echo($o->U); ?>' class='mono'><?php echo(date(self::ddatef, $o->U)); ?></td>
+			<td    data-u='<?php echo($o['U']); ?>' class='mono'><?php echo(date(self::ddatef, $o['U'])); ?></td>
 		</tr>
 <?php }	?>
 </table>
