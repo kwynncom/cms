@@ -4,7 +4,7 @@
 
 	class htvalNuURLDo {
 		
-		const vpath = '/htval/?doc=';
+		const vpath = '/htval/?showsource=yes&doc=';
 		const mypath = '/t/23/02/htva/htva.php';
 		const htmlrefk = 'redir';
 		const htmlrefv = 'yes';		
@@ -34,8 +34,8 @@
 $kwt2302htvnudo = new htvalNuURLDo();
 
 ?>
-<a href='<?php  echo($kwt2302htvnudo->docurl); 
-						  unset($kwt2302htvnudo); ?>'>
+<a href='<?php   echo($kwt2302htvnudo->docurl); 
+				unset($kwt2302htvnudo); ?>'>
 	<img src='/t/5/02/html5_valid.jpg' alt='HTML5 validation check' width='103' height='36' />
 </a>
 
