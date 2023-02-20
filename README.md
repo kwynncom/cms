@@ -1,5 +1,5 @@
 # cms
-Very beginning of my own CMS.
+Slowly growing CMS features.
 
 https://kwynn.com/t/22/06/upsort/ - Update log is live.
 
