@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div class='htvd'>
-		<?php require(__DIR__ . '/htva.php'); ?>
+		<?php require_once(__DIR__ . '/htva.php'); ?>
 	</div>
 	
 </body>
