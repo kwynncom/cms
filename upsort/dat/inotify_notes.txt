@@ -1,0 +1,5 @@
+# use a full path ./blah4 does NOT work
+inotifywait -e modify -d --outfile /tmp/inl /tmp/blah4
+
+ --fromfile <file>
+              Read filenames to watch or exclude from a file, one filename per line.

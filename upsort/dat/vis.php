@@ -20,6 +20,7 @@ class fileVis extends dao_generic_3 implements upsortDBConfig {
 		$a = $o->sendOne(true);
 		$ret = $a['dHussjs'];
 		wwwLatestUpdateCache::put($a);
+		if ($fmt === 'json') return json_encode($a);
 		return $ret;
 	}
 	

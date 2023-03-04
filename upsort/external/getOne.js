@@ -10,7 +10,10 @@ function kwGetLatestWWW(cb) { // 2023/02/16 - moved from external file
 			{ 
 				r['rjs'] = UtoLocF(r['U']);
 				cb(r);
-				kwjss.sobf(urlb + '&cache=no');
+				kwjss.sobf(urlb + '&cache=no', {}, (r20) => { 
+					r20['rjs'] = UtoLocF(r20['U']);
+					cb(r20); 
+				});
 			});
 	} catch (ex) { cl(ex); }
 } // func
