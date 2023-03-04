@@ -1,6 +1,7 @@
-function kwGetLatestWWW(cb) { // 2023/02/16 - moved from external file
-
-	try {
+class kwGetLatestWWWcl {
+	constructor() {	try { this.do10(); } catch (ex) { cl(ex); }	}
+	
+	do10() {
 		const urlb = '/t/22/06/upsort/dat/server.php?getOne=1';
 
 		const p10 = kwjss.sobf(urlb);
@@ -8,19 +9,15 @@ function kwGetLatestWWW(cb) { // 2023/02/16 - moved from external file
 		Promise.all([p10, p20 ])
 			.then(([r, ignoreFromDOM]) => 
 			{ 
-				r['rjs'] = UtoLocF(r['U']);
-				cb(r);
-				kwjss.sobf(urlb + '&cache=no', {}, (r20) => { 
-					r20['rjs'] = UtoLocF(r20['U']);
-					cb(r20); 
-				});
-			});
-	} catch (ex) { cl(ex); }
-} // func
-
-
-function kwOnLatestWWW(res) {
-	inht('gopa23', res['rjs']);
+				this.onres(r);
+				kwjss.sobf(urlb + '&cache=no', {}, this.onres);
+			});		
+	}
+	
+	onres(r) {
+		const rjs = UtoLocF(r['U']);
+		inht('gopa23', rjs);	
+	}
 }
 
-kwGetLatestWWW(kwOnLatestWWW);    
+new kwGetLatestWWWcl();
