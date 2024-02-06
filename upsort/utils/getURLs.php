@@ -9,7 +9,7 @@ class getAllUpPgURLs {
 		$u = GitGet::get();
 		self::normUs($u);
 		$a = kwam($f, $u);
-		usort($a, ['self', 'sortAndProcess']);
+		usort($a, ['getAllUpPgURLs', 'sortAndProcess']); // 'self' is deprecated
 		return $a;
 	}
 	

@@ -5,6 +5,9 @@ require_once(__DIR__ . '/../dat/vis.php');
 
 class ht10 {
 	
+	private readonly bool $isad;
+	private readonly bool $isav;
+	
 	const maxdlen = 41;
 	const ddatef  = 'm/d/y H:i';
 

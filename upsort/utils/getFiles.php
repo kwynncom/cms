@@ -6,6 +6,9 @@ require_once('/opt/kwynn/isKwGoo.php');
 class getSiteFiles {
 	
 	const minDate = 1270400000; // 1270400000 === Sun Apr 04 2010 12:53:20 GMT-0400 (Eastern Daylight Time)
+	private  array $thedat;
+	private readonly string $droot;
+	private readonly array $therawa;
 	
 
 public static function get() {
@@ -13,10 +16,13 @@ public static function get() {
 	return $o->getPathsI();
 }
 
-private function getPathsI() { return $this->thedat; }
+private function getPathsI() : array 
+{ 
+	return kwifs($this, 'thedat', ['kwiff' => []]);
+
+}
 
 private function __construct() {
-	$this->thedat = [];	
 	$this->set10();
 	$this->p20();
 	$this->doHT();
@@ -24,7 +30,8 @@ private function __construct() {
 
 private function set10() {
 	$this->droot = $root = dr();
-	$c = 'find ' . $root . '/ ' . ' -type f -printf "%T+\t%p\n" ';
+	// -L follow symlinks
+	$c = 'find -L ' . $root . '/ ' . ' -type f -printf "%T+\t%p\n" 2> /dev/null ';
 	kwGooOrDie();
 	$res = shell_exec($c); 
 	unset($c);
@@ -38,7 +45,7 @@ private function doHT() {
 
 private function p20() {
 
-	$a = $this->therawa; unset($this->therawa);
+	$a = kwifs($this, 'therawa', ['kwiff' => []]); /* unset($this->therawa); not to be used again, but I set to read only */
 
 	$a20 = [];
 	foreach($a as $r) {
@@ -83,6 +90,7 @@ private function setTimePs($rt, &$ref) {
 
 private function buildDat($p, $rt) {
 	$to = [];
+	$temp = [];
 	$to['p'] = $p;
 	$this->setTimePs($rt, $to);
 	$this->thedat[] = $to;

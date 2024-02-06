@@ -43,7 +43,8 @@ h3 { margin-top: 0.2ex; margin-bottom: 0.2ex;  }
     margin-bottom: -0.2ex;
     margin-top: 3ex; 
 }
-.immavp { font-size: 119%; }
+.immavp   { font-size: 119%; }
+.immavp20 { font-size: 105%; }
 .swappp  { margin-top: 2ex; }
 .weekfcp { display: inline-block; margin-left: 1.0ex; }
 
@@ -76,24 +77,34 @@ h1 { font-size: 150%;
     </div>
 </div>
     
-<div>
-
-<section>
-<h2 class='c21-10'>software:</h2> <p class='c21-10'> <a href='/t/3/02/Buess_resume.html'>my resume</a> with contact info, 
+<section><h2 class='c21-10'>software:</h2> <p class='c21-10'> <a href='/t/23/05/Buess_resume.html'>my resume</a> with contact info, 
     <a href='/t/20/10/github_guide.html'>my Github</a> (software projects), and 
     <a href='/t/7/01/article_index.html'>other technical stuff</a>, including my <a href='/t/7/11/blog.html'>tech blog</a></p>
 
-<p class='immavp'>
-    I am immediately available for software gigs / work (<a href='/t/20/10/availability.html'>availability updates</a>).
+<p class='immavp' style='margin-top: 0.5em; margin-bottom: 0.8em; '>
+	I am immediately available for software gigs / work, although 
+	<span style='font-size: 120%'>
+	<a href='/t/8/04/housing.html'>housing</a> is more important, as of mid-December, 2023.
+	</span>
+	<span style='font-size: 80%; '>Combining software and housing would be even better.</span>
 </p>
 
-<section class='swappp'>
-<h3 class='c21-10'><a href='/t/22/09/apprentice_2022_09.html'>seeking software apprentices</a></h3> 
+
+<div style='font-size: 95%; '>
+<p class='' style='margin-bottom: 0ex; margin-top: 0ex;'>My <a href='/t/23/05/Russia_application.html'>beyond-tech job application</a>, with an emphasis on "Go Russia!"
+	
+</p>
+</div>
+
+<section class='swappp' style='margin-top: 1.5ex; font-size: 95%; '>
+<h3 class='c21-10'><a href='/t/23/05/apprentices_2305.html'>seeking software apprentices</a></h3> 
 <p class='c21-10'>almost no experience needed, and I don't care 
     where you are</p>
 </section>
 </section>
-</div>
+
+
+
    
 <section>
     <h2 class='wvh2'>worldview</h2>

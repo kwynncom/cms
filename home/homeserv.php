@@ -5,6 +5,7 @@ require_once(dr() . '/t/22/06/upsort/dat/vis.php');
 require_once(dr() . '/t/21/12/flatten.php');
 require_once(__DIR__ . '/etag.php');
 
+#[\AllowDynamicProperties]
 class kwHomePageAssist {
 	
 	public readonly string $oneuphu;
