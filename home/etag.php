@@ -23,7 +23,9 @@ class kwHomeETag {
 		$e = self::pfx . self::clv;
 		foreach([self::idxf, self::wkf, self::upf] as $f) {
 			$e .= $f[0];
-			$v = $vs[$f];
+			$kwt26 = kwifsT($vs, $f);
+			if (!$kwt26) continue;
+			$v = $kwt26;
 			if ($f === self::wkf) $v -= self::wkbase;
 			else				  $v -= self::Ubase ;
 			$e .= dechex($v);

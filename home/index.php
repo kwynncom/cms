@@ -68,7 +68,7 @@ h1 { font-size: 150%;
             <span style='font-size: 90% '>Site updated</span>
 				<span style='display: inline-block; width: 31ch; text-align: center; font-family: monospace; font-size: 120%; ' id='gopa23' 
 					  ><?php 
-					  echo($GVKWHIDX->oneuphu); 
+					  echo(kwifsT($GVKWHIDX, 'oneuphu', ['kwiff' => 'unknown'])); 
 					  ?>
 				</span>
 

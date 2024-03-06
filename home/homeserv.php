@@ -36,7 +36,9 @@ class kwHomePageAssist {
 	
 	private function doUp() {
 		$a = fileVis::getOneLatest('array');
-		$this->oneuphu = $a['dHussjs'];
+		$kwt39 = kwifs($a, 'dHussjs');
+		if (!$kwt39) return;
+		$this->oneuphu = $kwt39;
 		$this->muts[] = $this->mats[kwHomeETag::upf] = $a['U'];
 		return;
 	}

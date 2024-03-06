@@ -10,6 +10,7 @@ require_once(__DIR__ . '/../utils/getURLs.php');
 class fileVis extends dao_generic_3 implements upsortDBConfig {
 	
 	private readonly array $ftss;
+	private		 array $ouids;
 
 	public static function getOneLatest(string $fmt = 'json') {
 		if ($c = wwwLatestUpdateCache::get()) {
@@ -18,6 +19,7 @@ class fileVis extends dao_generic_3 implements upsortDBConfig {
 		} unset($c);
 		$o = new self('getVis', true);
 		$a = $o->sendOne(true);
+		if (!$a) return;
 		$ret = $a['dHussjs'];
 		wwwLatestUpdateCache::put($a);
 		if ($fmt === 'json') return json_encode($a);
@@ -25,6 +27,7 @@ class fileVis extends dao_generic_3 implements upsortDBConfig {
 	}
 	
 	public function __construct(string $from = '', bool $getOneInteral = false) {
+	    $this->ouids = [];
 		$this->dbInit();
 		$g1 =  isrv('getOne');
 		if ($from === 'getVis' || $g1) { 
@@ -39,7 +42,9 @@ class fileVis extends dao_generic_3 implements upsortDBConfig {
 	}
 	
 	public function sendOne($internal) {
-		$r = $this->ftss[0];
+	    
+		$r = kwifsT($this, 'ftss', 0);
+		if (!$r) return;
 		$r['r'] = date('r', $r['U']);
 		if ($internal) { 
 			//  Sat, Aug 13, 2022, 01:59 AM EDT
